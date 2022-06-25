@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Sprites/Warrior/Idle/__Warrior_Idle_006.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Warrior/Idle/__Warrior_Idle_007.png" type="Texture" id=2]
@@ -22,6 +22,22 @@
 [ext_resource path="res://Sprites/Warrior/Run/__Warrior_Run_002.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Warrior/Jump/__Warrior_FallDown_000.png" type="Texture" id=21]
 [ext_resource path="res://Sprites/Warrior/Jump/__Warrior_JumpUp_000.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Warrior/Dead/__Warrior_Dead_002.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Warrior/Dead/__Warrior_Dead_003.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Warrior/Dead/__Warrior_Dead_004.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Warrior/Dead/__Warrior_Dead_005.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Warrior/Dead/__Warrior_Dead_006.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Warrior/Dead/__Warrior_Dead_000.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Warrior/Dead/__Warrior_Dead_001.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Warrior/Dead/__Warrior_Dead_007.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Warrior/Hurt/__Warrior_Hurt_004.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Warrior/Hurt/__Warrior_Hurt_007.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Warrior/Hurt/__Warrior_Hurt_003.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Warrior/Hurt/__Warrior_Hurt_006.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Warrior/Hurt/__Warrior_Hurt_005.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Warrior/Hurt/__Warrior_Hurt_000.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Warrior/Hurt/__Warrior_Hurt_001.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Warrior/Hurt/__Warrior_Hurt_002.png" type="Texture" id=38]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -30,17 +46,27 @@ animations = [ {
 "name": "idle",
 "speed": 13.07
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "run",
-"speed": 15.0
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 30 ) ],
+"loop": false,
+"name": "die",
+"speed": 20.0
 }, {
 "frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "run",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 20.0
 } ]
 
 [node name="AnimatedPlayerSprite" type="AnimatedSprite"]
 frames = SubResource( 1 )
-animation = "jump"
+animation = "hurt"

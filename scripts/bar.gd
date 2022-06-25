@@ -1,6 +1,6 @@
-extends Area2D
+extends KinematicBody2D
 
-export var speed: int = 100
+export var speed: int = 10
 
 export var moveDist: int = 100
 var ROTATION_SPEED: int = 200
@@ -44,12 +44,7 @@ func _process(delta):
 		else:
 			targetX = startX
  
-	if targetX == startX: 
-		rotation_degrees -= ROTATION_SPEED * delta
- 
-	else:
- 
-		rotation_degrees += ROTATION_SPEED * delta
+
 		
 
 

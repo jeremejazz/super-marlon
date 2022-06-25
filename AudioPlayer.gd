@@ -11,6 +11,8 @@ func play_coin_sfx():
 func play_death_sfx():
 	stream = deathSFX
 	play();
+ 
+	
 	
 func play_jump():
 	stream = jump_sfx

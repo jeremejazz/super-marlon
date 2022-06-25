@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
@@ -6,12 +6,16 @@
 [ext_resource path="res://CameraController.gd" type="Script" id=4]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Audio/level1.tres" type="AudioStream" id=7]
+[ext_resource path="res://tiles/DeathTile.tscn" type="PackedScene" id=7]
 [ext_resource path="res://AudioPlayer.gd" type="Script" id=8]
 [ext_resource path="res://Sprites/clouds/cloud2.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/clouds/cloud1.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/clouds/cloud3.png" type="Texture" id=11]
 [ext_resource path="res://Font/ubuntu_regular.tres" type="DynamicFont" id=12]
+[ext_resource path="res://tiles/bar.tscn" type="PackedScene" id=13]
+[ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=14]
+[ext_resource path="res://tiles/triggermsg.tscn" type="PackedScene" id=15]
+[ext_resource path="res://tiles/triggermsg.gd" type="Script" id=16]
 
 [node name="MainScene" type="Node2D"]
 __meta__ = {
@@ -323,13 +327,9 @@ position = Vector2( 680, 296 )
 position = Vector2( 1648, 496 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
 volume_db = -5.807
 autoplay = true
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 136, 280 )
-z_index = 10
+script = ExtResource( 14 )
 
 [node name="Coin5" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2208, 296 )
@@ -359,12 +359,32 @@ speed = 4
 moveDist = 310
 
 [node name="Thank you" type="Label" parent="."]
-margin_left = 2824.0
-margin_top = 328.0
-margin_right = 3117.0
-margin_bottom = 358.0
+visible = false
+margin_left = 2808.0
+margin_top = 344.0
+margin_right = 3101.0
+margin_bottom = 374.0
 custom_fonts/font = ExtResource( 12 )
 text = "Thank you for playing! :D"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="bar" parent="." instance=ExtResource( 13 )]
+position = Vector2( 2168, 384 )
+speed = 3
+moveDist = 150
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 184, 384 )
+
+[node name="DeathTile" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1312, 632 )
+scale = Vector2( 64.6256, 1.01408 )
+
+[node name="Triggermsg" parent="." instance=ExtResource( 15 )]
+position = Vector2( 3072, 384 )
+scale = Vector2( 14.0772, 18.8975 )
+script = ExtResource( 16 )
+
+[connection signal="body_entered" from="Triggermsg" to="Triggermsg" method="_on_Triggermsg_body_entered"]
